@@ -4,12 +4,10 @@ import Card from '../components/Card/index'
 const contentful = require('contentful')
 
 const client = contentful.createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
 
-    space:'ts47honc1w8u',
-  
-    accessToken: 'oSWUxeAc79SBQzieh8SMB4Q_lFOjU-pKEKlS7rWvq8g'
-  
-  });   
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+}); 
 
 export default function rooms ({rooms}){
     console.log(rooms);

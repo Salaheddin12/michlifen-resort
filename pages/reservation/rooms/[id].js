@@ -9,14 +9,12 @@ import "react-dates/lib/css/_datepicker.css";
 const contentful = require("contentful");
 
 const client = contentful.createClient({
-  space: "ts47honc1w8u",
+  space: process.env.CONTENTFUL_SPACE_ID,
 
-  accessToken: "oSWUxeAc79SBQzieh8SMB4Q_lFOjU-pKEKlS7rWvq8g",
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const stripePromise = loadStripe(
-  "pk_test_51HyLHAIgk2MP1Xy8rUM9akRuTVbB77IE5DvMQpcbxbeAqjxenvZ74lyxbvepsNYVLvNDHQ46XoiZUKOycMQJTzeX00b9amrHhK"
-);
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
 
 
 export default function room({ room }) {
