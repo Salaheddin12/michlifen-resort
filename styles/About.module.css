@@ -1,0 +1,25 @@
+.title {
+  color: #0d47a1;
+  font-size: 38px;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.row {
+  margin: 4rem 0;
+}
+
+.row h4 {
+  color: #1565c0;
+  letter-spacing: 2px;
+}
+
+.row h3 {
+  display: inline;
+}
+.row > h2 {
+  width: 100%;
+}
+.row table {
+  margin-top: 1rem;
+}
