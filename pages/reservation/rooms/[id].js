@@ -14,7 +14,7 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe('pk_test_51HyLHAIgk2MP1Xy8rUM9akRuTVbB77IE5DvMQpcbxbeAqjxenvZ74lyxbvepsNYVLvNDHQ46XoiZUKOycMQJTzeX00b9amrHhK');
 
 
 export default function room({ room }) {

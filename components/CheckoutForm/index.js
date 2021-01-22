@@ -28,7 +28,7 @@ const CARD_OPTIONS = {
 };
 
 export default function ({room}) {
-    const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
+    const stripePromise = loadStripe('pk_test_51HyLHAIgk2MP1Xy8rUM9akRuTVbB77IE5DvMQpcbxbeAqjxenvZ74lyxbvepsNYVLvNDHQ46XoiZUKOycMQJTzeX00b9amrHhK');
 
     const [customerData, setCustomerData] = useState({
         customer_name: "",
