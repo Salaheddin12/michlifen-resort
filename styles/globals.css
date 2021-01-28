@@ -16,3 +16,7 @@ a {
   box-sizing: border-box;
   font-family: "Julius Sans One", sans-serif;
 }
+
+.Toastify__toast--info {
+  background-color: #1565c0;
+}

@@ -4,8 +4,9 @@ export default async function handler(req, res) {
   
     // const cookie = await parseCookies({req});
     const { customer_name,customer_email,room_name,room_price,dates} = req.body.reservation;
-
-    const {id} = await stripe.customers.create({
+    
+    try{
+      const {id} = await stripe.customers.create({
       name:customer_name,
       email:customer_email,
     });
@@ -21,6 +22,10 @@ export default async function handler(req, res) {
       },
       payment_method_types: ['card'],
     });
-    
+    console.log(paymentIntent);
     res.status(200).json({paymentIntent});
+    }
+    catch(error){
+      console.log(error);
+    }
   }
