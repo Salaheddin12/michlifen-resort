@@ -5,7 +5,7 @@ import {Navbar,Button,Nav} from "react-bootstrap";
 
 export default function nav (){
   return (
-    <Navbar>
+    <Navbar style={{backgroundColor:'transparent'}}>
     <Navbar.Brand href="/">Michlifen Resort & Golf</Navbar.Brand>
     <Nav className="mr-auto ml-4">
       <Nav.Link href="/">Home</Nav.Link>

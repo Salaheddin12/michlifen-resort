@@ -13,7 +13,7 @@ class MyDocument extends Document {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <body>
+        <body style={{backgroundImage:"url('/bg_1.svg')",backgroundPositionX: 'right',backgroundRepeat:'no-repeat'}}>
           <Navigation></Navigation>
           <Main />
           <NextScript />
