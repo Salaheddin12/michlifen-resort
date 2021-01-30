@@ -107,30 +107,27 @@ export default function ({ room }) {
                 dates,
             }
         });
-
-        const { paymentIntent } = data;
-            try {
-                const res = await stripe.confirmCardPayment(paymentIntent.client_secret, {
+        const {paymentIntent} = data; 
+        
+                const response = await stripe.confirmCardPayment(paymentIntent.client_secret, {
                     payment_method: {
                         card: elements.getElement(CardElement)
                     }
-                });
-                setCustomerData({ customer_name: '', customer_email: '' })
-                setDates({
+                })
+                if(response.error){
+                    toast.error(response.error.message);
+                }
+                else{
+                    setCustomerData({ customer_name: '', customer_email: '' })
+                    setDates({
                     startDate: null,
                     endDate: null,
-                })
-                setErrors({});
-                toast.info('payment was successful');
-            } catch (error) {
-                console.log(error);
-            }
-        //     if(){
+                    })
+                    setErrors({});
+                    toast.info('payment was successful');
+                }
 
-        //     }
-        // else {
-        //     setErrors({ ...errors, card: 'incomplete Card info' });
-        // }
+                console.log(response)
     };
 
     return (
