@@ -2,7 +2,6 @@
 export default async function handler(req, res) {
     const stripe = require("stripe")("sk_test_51HyLHAIgk2MP1Xy8qLHm3iAXBhQlXRBffGs3MJWjDoravdR52eusbQh3TDihnMpGYdQb7oSo8pJQOAC7HMpjghPH00Oo0Ysr2Y");
   
-    // const cookie = await parseCookies({req});
     const { customer_name,customer_email,room_name,room_price,dates} = req.body.reservation;
     
     try{

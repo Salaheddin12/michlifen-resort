@@ -69,8 +69,6 @@ export default function ({ room }) {
 
     const validate = () => {
 
-        console.log(customerData, dates);
-
         const values = {
             name: customerData.customer_name,
             email: customerData.customer_email,
@@ -84,7 +82,6 @@ export default function ({ room }) {
         if (!error) return null;
         const errors = {};
         error.details.map(error_ => errors[error_.path[0]] = error_.message);
-        console.log(errors);
         return errors;
     }
 
@@ -126,8 +123,6 @@ export default function ({ room }) {
                     setErrors({});
                     toast.info('payment was successful');
                 }
-
-                console.log(response)
     };
 
     return (
