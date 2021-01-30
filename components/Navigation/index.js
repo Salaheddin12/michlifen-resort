@@ -5,8 +5,10 @@ import {Navbar,Button,Nav} from "react-bootstrap";
 
 export default function nav (){
   return (
-    <Navbar style={{backgroundColor:'transparent'}}>
+    <Navbar collapseOnSelect expand="lg" style={{backgroundColor:'transparent'}}>
     <Navbar.Brand href="/">Michlifen Resort & Golf</Navbar.Brand>
+    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto ml-4">
       <Nav.Link href="/">Home</Nav.Link>
       <Nav.Link href="/rooms">Rooms</Nav.Link>
@@ -14,6 +16,7 @@ export default function nav (){
     </Nav>
       <Button className="mr-sm-2" style={{backgroundColor:'#1565c0'}}>Sign Up</Button>
       <Button  style={{backgroundColor:'#0d47a1'}}>Login</Button>
+    </Navbar.Collapse>
   </Navbar>
   );
 };
