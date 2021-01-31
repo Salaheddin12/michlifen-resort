@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import Navigation from '../components/Navigation/index'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -14,7 +13,6 @@ class MyDocument extends Document {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <body style={{backgroundImage:"url('/bg_1.svg')",backgroundPositionX: 'right',backgroundRepeat:'no-repeat'}}>
-          <Navigation></Navigation>
           <Main />
           <NextScript />
         </body>
