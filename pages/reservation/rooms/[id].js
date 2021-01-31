@@ -18,7 +18,7 @@ const stripePromise = loadStripe('pk_test_51HyLHAIgk2MP1Xy8rUM9akRuTVbB77IE5DvMQ
 
 
 export default function room({ room }) {
-  console.log(room);
+  
   const { fields } = room;
   const {
     name,
@@ -71,16 +71,19 @@ export default function room({ room }) {
 }
 
 export async function getStaticProps({ params }) {
-  const rooms = (await client.getEntries({ content_type: "room" })).items;
-  const room = rooms.filter((room) => room.sys.id === params.id)[0];
-  return { props: { room } };
+  const room = await client.getEntries({ content_type: "room" })
+  .then(response=>response.items.filter(item=>item.sys.id===params.id))
+  .catch(error=>console.log(error))
+  return { props: { room:room[0] } };
 }
 
 export async function getStaticPaths() {
-  const rooms = (await client.getEntries({ content_type: "room" })).items;
-  const paths = rooms.map((room) => `/reservation/rooms/${room.sys.id}`);
+  const rooms = await client.getEntries({ content_type: "room" })
+  .then(response=>response.items.map((item) => `/reservation/rooms/${item.sys.id}`))
+  .catch(error=>console.log(error))
+  
   return {
-    paths,
+    paths:rooms,
     fallback: true,
   };
 }
