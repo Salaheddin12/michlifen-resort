@@ -11,7 +11,7 @@ export default function index ({data}){
           <Card.Text>
            {price} DH / Night
           </Card.Text>
-          <Button style={{backgroundColor:'#f26e11',border:"none",fontSize:"18px"}} onClick={()=>window.location.replace(`/reservation/rooms/${sys.id}`)}>Reserve</Button>
+          <Button style={{backgroundColor:'#f26e11',border:"none",fontSize:"18px"}} onClick={()=>window.location.replace(`/reservation/${sys.id}`)}>Reserve</Button>
         </Card.Body>
       </Card>
     );

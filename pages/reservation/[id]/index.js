@@ -17,8 +17,9 @@ const client = contentful.createClient({
 const stripePromise = loadStripe('pk_test_51HyLHAIgk2MP1Xy8rUM9akRuTVbB77IE5DvMQpcbxbeAqjxenvZ74lyxbvepsNYVLvNDHQ46XoiZUKOycMQJTzeX00b9amrHhK');
 
 
-export default function room({ room }) {
+export default function Room({ room }) {
   
+  console.log(room);
   const { fields } = room;
   const {
     name,
@@ -70,16 +71,9 @@ export default function room({ room }) {
   );
 }
 
-export async function getStaticProps({ params }) {
-  const room = await client.getEntries({ content_type: "room" })
-  .then(response=>response.items.filter(item=>item.sys.id===params.id))
-  .catch(error=>console.log(error))
-  return { props: { room:room[0] } };
-}
-
 export async function getStaticPaths() {
   const rooms = await client.getEntries({ content_type: "room" })
-  .then(response=>response.items.map((item) => `/reservation/rooms/${item.sys.id}`))
+  .then(response=>response.items.map((item) => `/reservation/${item.sys.id}`))
   .catch(error=>console.log(error))
   
   return {
@@ -87,3 +81,11 @@ export async function getStaticPaths() {
     fallback: true,
   };
 }
+
+export async function getStaticProps({ params }) {
+  const rooms = await client.getEntries({ content_type: "room" })
+  const room = rooms.items.filter(item=>item.sys.id===params.id)
+  return { props: { room:room[0] } };
+}
+
+

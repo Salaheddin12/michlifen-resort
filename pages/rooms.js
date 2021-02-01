@@ -10,7 +10,7 @@ const client = contentful.createClient({
 }); 
 
 export default function rooms ({rooms}){
-    console.log(rooms);
+  
     return (
         <div className={styles.grid}>
         {
